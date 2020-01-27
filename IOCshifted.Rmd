@@ -1,0 +1,510 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-high-frequency/{-10,0}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-10,0]-shifted-high frequeny (a.u.)", xlab = "Music")
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-high-frequency/{-5,0}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-5,0]-shifted-high frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-high-frequency/{0,5}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-10,0]-shifted-high frequeny (a.u.)", xlab = "Music")
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-high-frequency/{-5,5}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-10,0]-shifted-high frequeny (a.u.)", xlab = "Music")
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-high-frequency/{0,10}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[0,10]-shifted-high frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-high-frequency/{-2,2}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-2,2]-shifted-high frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-low-frequency/{0,10}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[0,10]-shifted-low frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-low-frequency/{-5,0}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-5,0]-shifted-low frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-low-frequency/{0,5}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[0,5]-shifted-low frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-low-frequency/{-5,5}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-5,5]-shifted-low frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-low-frequency/{-2,2}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-2,2]-shifted-low frequeny (a.u.)", xlab = "Music")
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-low-frequency/{-10,0}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-10,0]-shifted-low frequeny (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-total/{0,10}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[0,10]-shifted(a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-total/{-5,0}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-5,0]-shifted (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-total/{0,5}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[0,5]-shifted (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-total/{-5,5}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-5,5]-shifted (a.u.)", xlab = "Music")
+```
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-total/{-2,2}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-2,2]-shifted (a.u.)", xlab = "Music")
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/IOCfinalresult/IOC-total/{-10,0}-sh.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(zvalue ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "zvalue", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Negative_Reflective", "Positive_Reflective", "Negative_Upbeat", "Positive_Upbeat"),
+       ylab = "[-10,0]-shifted (a.u.)", xlab = "Music")
+```
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
