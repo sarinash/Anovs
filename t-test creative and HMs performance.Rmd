@@ -1,0 +1,100 @@
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/fluency and ioc.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(lll ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "lll", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Positive_Upbeat"),
+       ylab = "Fluency", xlab = "Music")
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/fluency and ioc.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(originalitylast ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "originalitylast", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Positive_Upbeat"),
+       ylab = "Originality", xlab = "Music", x.text.angle=45)
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/fluency and ioc.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(ratio ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "ratio", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Positive_Upbeat"),
+       ylab = "Index of Converegence (IOC)", xlab = "Music", x.text.angle=45)
+```
+
+```{r}
+library("xlsx")
+library(lme4)
+library(lmerTest)
+library(interplot)
+mydata <- "C:/Users/sarina/Desktop/fluency and ioc.xlsx"
+# Multiple Linear Regression Example 
+my_data <-   read.xlsx(mydata, sheetName = "Sheet1",header = T)
+my_data$Music <- factor(my_data$Music, levels=c("No_Music", "Positive_Upbeat"))
+
+my_data <- data.frame(my_data)
+my_data <- subset(my_data, !is.na(Music))
+
+est.rmaov <- aov(HMS ~ Music + Error(ID), data=my_data)
+summary(est.rmaov)
+
+library(ggplot2)
+library("ggpubr")
+par(bg=NA)
+ggline(my_data, x = "Music", y = "HMS", 
+       add = c("mean_se"), 
+       order = c("No_Music", "Positive_Upbeat"),
+       ylab = "Head Movement synchrony (HMS)", xlab = "Music", x.text.angle=45)
+```
+       
